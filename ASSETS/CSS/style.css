@@ -10,10 +10,15 @@
     flex-wrap: wrap;
 }
 
+
+
 /* Header Styling */
 header {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
     flex-wrap: wrap;
-    padding: 30px 25px;
+    padding: 10px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -29,9 +34,29 @@ header h1 {
 }
 
 
-header .btn {
-    align-items: center;
+header .btn:hover {
+    box-shadow: 0 2px grey;
+    top: -2px;
+}
+
+header.btn:active {
+    box-shadow: 0 0px grey;
+    top: 0;
+}
+
+header p {
+    text-align: center;
+    justify-content: center;
     flex-direction: column;
+    display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
     outline: none;
     border: none;
     padding: 10px 15px;
@@ -39,16 +64,4 @@ header .btn {
     border-radius: 12px;
     top: -3px;
     box-shadow: 0 3px var(--grey);
-    float: right;
-}
-
-header p {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
