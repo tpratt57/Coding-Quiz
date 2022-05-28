@@ -15,7 +15,8 @@
 
 <body>
         <header>
-            <button id="highScoresBtn">View Highscores!</button>
+            <button id="highScores">View Highscores!</button>
+            <p style="display: none;">Time: <span id="timer">9999</span></p>
         </header>
 
         <main>
@@ -24,10 +25,29 @@
                 Try to answer the following code-related questions within the time limit. 
                 Keep in mind that incorrect answers will penalize your score/time by ten seconds!
             </p>
-            <button id="startQuizBtn">Start Quiz!</button>
+            <button id="startQuiz">Start Quiz!</button>
                 <ul>
 
                 </ul>
+            <div id="submit-highscore">
+                <h1>Game Over!</h1>
+                <p>Your final score is <span id="score">9999</span></p>
+                <div id="highscore-input">
+                    <p>Enter Name</p>
+                    <input type="text" id="fName" name="fName" value="">
+                    <button id="submit-highscore-btn">Submit</button>
+
+                </div>
+            </div>
+            <div id="view-highscore">
+                <h1>Highscores!</h1>
+                <ol>
+
+                </ol>
+                <button id="return-main-page">Go Back</button>
+                <button id="clearHighScores">Clear Highscores</button>
+
+            </div>
         </main>
 
     <script src="./ASSETS/Java/script.js"></script>
