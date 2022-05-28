@@ -56,5 +56,59 @@ function startTimer() {
     }, 1000);
 }
 
+//function that calls back to showQuestions to prompt questions 
+function showQuestions (currentQuestionIndex){
+    titleTag.textContent = question.questions[currentQuestionIndex];
+    createAnswersElement(currentQuestionIndex);
 
+    return;
+}
 
+//creates a new answer element in the answer list element & clears out previous answer 
+function createAnswersElement(currentQuestionIndex){
+    answerButtonList.innerHTML = '';
+
+    for(let answersIndex = 0; answersIndex < question.answers[currentQuestionIndex].length; answersIndex++){
+        var currentAnswerListItem = document.createElement('li');
+        var tempStr = (question.answers[currentQuestionIndex][answersIndex].includes('correct:'));
+
+        if(question.answers[currentQuestionIndex][answersIndex].includes('correct')){
+            tempStr = question.answers[currentQuestionIndex][answersIndex].substring(8, question.answers[currentQuestionIndex][answersIndex].length);
+            currentAnswerListItem.id = 'correct';
+        }
+
+        currentAnswerListItem.textContent = tempStr;
+        answerButtonList.appendChild(currentAnswerListItem);
+    }
+    return;
+}
+
+//function to switch to next question and show question content 
+
+function nextQuestion(){
+    questionsIndexNumber++;
+    if(questionsIndexNumber >= question.questions.length){
+        endGame();
+    }
+    else{
+        showQuestions(questionsIndexNumber);
+    }
+
+    return;
+}
+
+//function to end the question "game"
+
+function endQuiz(){
+    gameEnded = true;
+    score = timeLeft;
+
+    //hiding elements
+    timerP.style.display = 'none';
+    titleTag.style.display = 'none';
+    answerButtonList.innerHTML = '';
+
+    //show endscreen score and form to enter name for highscore
+    document.querySelector('#scoreSpan').textContent = score;
+    document.querySelector('#submit-highscore-div').style.display = 'block';
+}
