@@ -1,11 +1,11 @@
-var timerTag = document.querySelector(`#timerTag`); 
-var timerPTag  = document.querySelector(`header`).children[1];
-var submitHighscoreBtn = document.querySelector(`#submitHighscoreBtn`); 
-var viewHighscoresBtn = document.querySelector(`#viewHighscoresBtn`); 
-var clearHighscoreBtn = document.querySelector(`#clearHighscoreBtn`); 
+var timer = document.querySelector(`#timer`); 
+var timerP  = document.querySelector(`header`).children[1];
+var submitHighscore = document.querySelector(`#submitHighscore`); 
+var viewHighscores = document.querySelector(`#viewHighscores`); 
+var clearHighscore = document.querySelector(`#clearHighscore`); 
 var answerButtonLst = document.body.querySelector(`ul`); 
-var goBackHighscoreBtn = document.querySelector(`#goBackBtn`);
-var startBtn = document.querySelector(`#startBtn`); 
+var goBackHighscore = document.querySelector(`#goBack`);
+var startQuiz = document.querySelector(`#startQuiz`); 
 var titleTag = document.querySelector(`#title`);
 
 var questionObj = { 
@@ -33,16 +33,16 @@ var gameEnded = true;
 
 function setUpGame() {
     timeLeft = globalTimerPreset; 
-    timerTag.textContent = globalTimerPreset; 
+    timer.textContent = globalTimerPreset; 
 
-    document.querySelector(`#display-highscore-div`).style.display = `none`; 
+    document.querySelector(`#view-highscore`).style.display = `none`; 
 
     titleTag.textContent = `Coding Quiz 2022 Delux Edition!`; 
 
     titleTag.style.display = `block`; 
     document.querySelector(`#instructions`).style.display = `block`; 
-    viewHighscoresBtn.style.display = `block`; 
-    startBtn.style.display = `block`; 
+    viewHighscores.style.display = `block`; 
+    startQuiz.style.display = `block`; 
 
     return;
 }
@@ -51,10 +51,10 @@ function startGame() {
     gameEnded = false; 
     questionIndexNumber = 0; 
 
-    viewHighscoresBtn.style.display = `none` 
-    startBtn.style.display = `none`; 
+    viewHighscores.style.display = `none` 
+    startQuiz.style.display = `none`; 
     document.querySelector(`#instructions`).style.display = `none`; 
-    timerPTag.style.display = `block`; 
+    timerP.style.display = `block`; 
 
     showQuestions(questionIndexNumber);
     startTimer(); 
@@ -73,7 +73,7 @@ function startTimer() {
             endGame(); 
         }
 
-        timerTag.textContent = timeLeft; 
+        timer.textContent = timeLeft; 
         timeLeft--; 
     }, 1000); 
 
@@ -127,13 +127,13 @@ function endGame() {
     score = timeLeft;
 
     
-    timerPTag.style.display = `none`; 
+    timerP.style.display = `none`; 
     titleTag.style.display = `none`; 
     answerButtonLst.innerHTML = ''; 
 
     
     document.querySelector(`#scoreSpan`).textContent = score; 
-    document.querySelector(`#submit-highscore-div`).style.display = `block`; 
+    document.querySelector(`#submit-highscore`).style.display = `block`; 
 
     return;
 }
@@ -193,13 +193,13 @@ function storeScoreAndName() {
 function showHighscores() {
     
     titleTag.style.display = `none`; 
-    startBtn.style.display = `none`; 
+    startQuiz.style.display = `none`; 
     document.querySelector(`header`).children[0].style.display = `none`; 
     document.querySelector(`#instructions`).style.display = `none`; 
-    document.querySelector(`#submit-highscore-div`).style.display = `none`; 
+    document.querySelector(`#submit-highscore`).style.display = `none`; 
 
    
-    document.querySelector(`#display-highscore-div`).style.display = `block`; 
+    document.querySelector(`#view-highscore`).style.display = `block`; 
 
     tempOrderedList = document.querySelector(`ol`); 
     tempOrderedList.innerHTML = ``
@@ -230,12 +230,12 @@ function clearHighscores() {
 
 function init() {
     
-    startBtn.addEventListener(`click`, startGame); 
+    startQuiz.addEventListener(`click`, startGame); 
     answerButtonLst.addEventListener(`click`, checkAnswer); 
-    viewHighscoresBtn.addEventListener(`click`, showHighscores); 
-    submitHighscoreBtn.addEventListener(`click`, storeScoreAndName);
-    clearHighscoreBtn.addEventListener(`click`, clearHighscores);
-    goBackHighscoreBtn.addEventListener(`click`, setUpGame); 
+    viewHighscores.addEventListener(`click`, showHighscores); 
+    submitHighscore.addEventListener(`click`, storeScoreAndName);
+    clearHighscore.addEventListener(`click`, clearHighscores);
+    goBackHighscore.addEventListener(`click`, setUpGame); 
 
     setUpGame();
 
