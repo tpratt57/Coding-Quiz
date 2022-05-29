@@ -112,3 +112,19 @@ function endQuiz(){
     document.querySelector('#scoreSpan').textContent = score;
     document.querySelector('#submit-highscore-div').style.display = 'block';
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function quizStart(){
+    startQuiz.addEventListener('click', startGame);
+    answerButtonList.addEventListener('click', checkAnswer);
+    viewHighscores.addEventListener('click', showHighscores);
+    submitHighscore.addEventListener('click', storeScoreAndName);
+    clearHighscores.addEventListener('click', clearHighscores);
+    returnMainPage.addEventListener('click', setUpGame);
+
+    setUpGame();
+
+    return;
+}
+
+quizStart();
