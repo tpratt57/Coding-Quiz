@@ -1,3 +1,7 @@
+*{
+    margin: auto;
+}
+
 :root{
     --btnBackground: WHITE ;
     --btnBackgroundHover: #92cccc00;
