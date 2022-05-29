@@ -1,23 +1,18 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-:root {
+:root{
+    --btnBackground: WHITE ;
+    --btnBackgroundHover: #92cccc00;
     background-image: linear-gradient(to right, rgba(214, 37, 37, 0.397), rgb(78, 201, 184));
-    flex-direction: column;
-    flex-wrap: wrap;
 }
 
-/* Body Styling */
-body{
+body {
     position: relative;
     margin: 0.5rem;
     min-height: 98vh;
+    background: var(--mainBackground);
+    color: var(--mainTextColor);
 }
-/* Main Styling (timer & high scores) */
-header{
+
+header {
     display: flex;
     align-content: space-between;
     justify-content: space-between;
@@ -25,53 +20,112 @@ header{
     height: 100%;
 }
 
-/* #display-highscore-div > button,
-#highscore-input-div > button, */
+#display-highscore-div > button,
+#highscore-input-div > button,
 
-header button{
+header button {
     text-decoration: none;
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
     border: 0;
-    border-radius: 7px;
-    padding: 3px 10px 3px 10px ;
+    border-radius: 7px; 
+    padding: 5px 10px 5px 10px;
 }
 
-header p{
-    padding: 3px 10px 3px 10px ;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+header p {
+    padding: 3px 10px 3px 10px; 
 }
 
-/* Main Styling */ 
-
-main{
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 5vh 15vh 5vh 15vh;
+    padding: 5vh 15vw 5vh 15vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-main h1{
+main h1 {
     margin: 3vh;
     font-size: 200%;
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-main > button{
+main > div,
+#instructions {
+    padding: 0 15% 0 15%;
+    text-align: center;
+    font-size: 125%;
+}
+
+main > button {
     margin: 3vh;
     width: max-content;
+    padding: 0 10px 0 10px;
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
     border: 0;
-    border-radius: 7px;
-    padding: 10px 15px;
-    font-size: 2.2rem;
-    border-radius: 12px;
-    box-shadow: 0 3px var(--grey);
+    border-radius: 7px; 
+    font-size: 150%;
 }
 
-main > p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+main > ul {
+    align-self: flex-start;
+    margin-left: 15%;
+}
+
+main > ul li {
+    margin: 3vh;
+    width: max-content;
+    min-width: 10vw;
+    padding: 5px 10px 5px 10px;
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
+    border: 0;
+    border-radius: 7px; 
     font-size: 150%;
-    flex-direction: row;
-    flex-wrap: wrap;
+}
+
+main > div {
+    justify-content: flex-start;
+    display: none;
+}
+
+main > div > * {
+    margin: 1rem;
+}
+
+#submit-highscore-div button:hover,
+#display-highscore-div button:hover,
+body button:hover, 
+
+main > ul li:hover {
+    background: var(--btnBackgroundHover);
+    cursor: pointer;
+}
+
+footer {
+    position: absolute;
+    height: 5vh;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+#highscore-input-div {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#highscore-input-div > *{
+    margin: 0.5rem;
+}
+
+#highscore-input-div > p {
+    display: inline;
+}
+
+#highscore-input-div > input {
+    width:30%;
 }
